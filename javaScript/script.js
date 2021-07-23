@@ -1,9 +1,9 @@
 
 function mudarLayoutBotao () {
 
-    let a = 0
+    let a = 0;
 
-    for(let f = 0; f < 6; f++){
+    for(let f = 1; f < 6; f++){
         let semCertinho = document.getElementById(`certinhoP${f}`);
         if (semCertinho.style.display != 'none') {
             a++;
@@ -12,7 +12,7 @@ function mudarLayoutBotao () {
         }
     }
 
-    for(let g = 0; g < 6; g++){
+    for(let g = 1; g < 6; g++){
         let semCertinho = document.getElementById(`certinhoB${g}`);
         if (semCertinho.style.display != 'none') {
             a++;
@@ -21,7 +21,7 @@ function mudarLayoutBotao () {
         }
     }
 
-    for(let h = 0; h < 6; h++){
+    for(let h = 1; h < 6; h++){
         let semCertinho = document.getElementById(`certinhoS${h}`);
         if (semCertinho.style.display != 'none') {
             a++;
@@ -31,14 +31,14 @@ function mudarLayoutBotao () {
     }
 
     if (a === 3) {
-        let naoSelecionado = document.getElementById('NS')
-        naoSelecionado.style.display = 'none'
+        let naoSelecionado = document.getElementById('NS');
+        naoSelecionado.style.display = 'none';
 
-        let selecionado = document.getElementById ('S')
-        selecionado.style.display = 'initial'
+        let selecionado = document.getElementById ('S');
+        selecionado.style.display = 'initial';
 
-        let botao = document.getElementById('BF')
-        botao.style.background = '#32b72f'
+        let botao = document.getElementById('BF');
+        botao.style.background = '#32b72f';
     }
 }
 
@@ -103,3 +103,5 @@ function selecionaSobremesa (sobremesa, certinho) {
     ok.style.display = 'initial';
     mudarLayoutBotao();
 }
+
+
