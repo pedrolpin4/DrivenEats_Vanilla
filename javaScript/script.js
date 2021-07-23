@@ -1,3 +1,47 @@
+
+function mudarLayoutBotao () {
+
+    let a = 0
+
+    for(let f = 0; f < 6; f++){
+        let semCertinho = document.getElementById(`certinhoP${f}`);
+        if (semCertinho.style.display != 'none') {
+            a++;
+        } else {
+            continue
+        }
+    }
+
+    for(let g = 0; g < 6; g++){
+        let semCertinho = document.getElementById(`certinhoB${g}`);
+        if (semCertinho.style.display != 'none') {
+            a++;
+        } else {
+            continue
+        }
+    }
+
+    for(let h = 0; h < 6; h++){
+        let semCertinho = document.getElementById(`certinhoS${h}`);
+        if (semCertinho.style.display != 'none') {
+            a++;
+        } else {
+            continue
+        }
+    }
+
+    if (a === 3) {
+        let naoSelecionado = document.getElementById('NS')
+        naoSelecionado.style.display = 'none'
+
+        let selecionado = document.getElementById ('S')
+        selecionado.style.display = 'initial'
+
+        let botao = document.getElementById('BF')
+        botao.style.background = '#32b72f'
+    }
+}
+
 function selecionaPrato (prato, certinho) {
 
     for(let i = 1; i < 6; i++){
@@ -15,6 +59,7 @@ function selecionaPrato (prato, certinho) {
     el.style.border = '4px solid #32b72f';
     let ok = document.getElementById(certinho);
     ok.style.display = 'initial';
+    mudarLayoutBotao();
 }
 
 function selecionaBebida (bebida, certinho) {
@@ -34,7 +79,10 @@ function selecionaBebida (bebida, certinho) {
     el.style.border = '4px solid #32b72f';
     let ok = document.getElementById(certinho);
     ok.style.display = 'initial';
+    mudarLayoutBotao();
 }
+
+
 
 function selecionaSobremesa (sobremesa, certinho) {
 
@@ -53,6 +101,5 @@ function selecionaSobremesa (sobremesa, certinho) {
     el.style.border = '4px solid #32b72f';
     let ok = document.getElementById(certinho);
     ok.style.display = 'initial';
+    mudarLayoutBotao();
 }
-
-

@@ -40,9 +40,10 @@ body{
 }
 
 .bloco-prato{
-    height: 250px;
+    height: auto;
     margin-bottom: 27px;
     width: auto;
+    overflow-x: scroll;
 }
 
 .comando-bloco{
@@ -54,9 +55,9 @@ body{
 
 .container-opcoes{
     display: flex;
-    position: relative;
     width: auto;
-    height: 100%;
+    height: auto;
+    overflow-x: scroll;
 }
 
 .opcao {
@@ -66,6 +67,47 @@ body{
     width: 172px;
     margin: 17px 0px 0px 17px;
     padding: 18px 14px 13px 14px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 0px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.certinho {
+    display: none;
+    font-size: 16px;
+    color: #32b72f;
+    position: absolute;
+    right: 14px;
+    bottom: 13px;
+}
+
+.opcao img{
+    height: 87px;
+    width: 144px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    align-self: center;
+}
+
+.nome-opcao{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 4px;
+}
+
+.descricao{
+    font-size: 15px;
+    color: #A6a6a6;
+    margin-bottom: 9px;
+}
+
+.preco{
+    font-size: 16px;
 }
 
 .bottom-box{
@@ -78,4 +120,24 @@ body{
     bottom: 0;
     left: 0;
     width: 100vw;
+}
+
+.botao-final{
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #cbcbcb;
+    height: 61px;
+    width: 364px;
+    border-radius: 50px;
+    border: 0px;
+    padding: 0px 70px;
+    text-align: center;
+}
+
+.nao-selecionado{
+    display: initial;
+}
+
+.selecionado{
+    display: none;
 }
