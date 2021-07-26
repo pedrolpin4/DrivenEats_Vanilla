@@ -1,8 +1,5 @@
-
 function mudarLayoutBotao () {
-
     let a = 0;
-
     for(let f = 1; f < 6; f++){
         let semCertinho = document.getElementById(`certinhoP${f}`);
         if (semCertinho.style.display != 'none') {
@@ -11,7 +8,6 @@ function mudarLayoutBotao () {
             continue
         }
     }
-
     for(let g = 1; g < 6; g++){
         let semCertinho = document.getElementById(`certinhoB${g}`);
         if (semCertinho.style.display != 'none') {
@@ -20,7 +16,6 @@ function mudarLayoutBotao () {
             continue
         }
     }
-
     for(let h = 1; h < 6; h++){
         let semCertinho = document.getElementById(`certinhoS${h}`);
         if (semCertinho.style.display != 'none') {
@@ -29,21 +24,17 @@ function mudarLayoutBotao () {
             continue
         }
     }
-
     if (a === 3) {
         let naoSelecionado = document.getElementById('NS');
         naoSelecionado.style.display = 'none';
-
         let selecionado = document.getElementById ('S');
         selecionado.style.display = 'initial';
-
         let botao = document.getElementById('BF');
         botao.style.background = '#32b72f';
     }
 }
 
 function selecionaPrato (prato, certinho) {
-
     for(let i = 1; i < 6; i++){
         let verificado = document.getElementById(`prato${i}`);
         if(verificado.style.border != '0px'){
@@ -54,7 +45,6 @@ function selecionaPrato (prato, certinho) {
             continue
         }
     }
-
     let el = document.getElementById(prato);
     el.style.border = '4px solid #32b72f';
     let ok = document.getElementById(certinho);
@@ -63,7 +53,6 @@ function selecionaPrato (prato, certinho) {
 }
 
 function selecionaBebida (bebida, certinho) {
-
     for(let i = 1; i < 6; i++){
         let verificado = document.getElementById(`bebida${i}`);
         if(verificado.style.border != '0px'){
@@ -74,7 +63,6 @@ function selecionaBebida (bebida, certinho) {
             continue
         }
     }
-
     let el = document.getElementById(bebida);
     el.style.border = '4px solid #32b72f';
     let ok = document.getElementById(certinho);
@@ -85,7 +73,6 @@ function selecionaBebida (bebida, certinho) {
 
 
 function selecionaSobremesa (sobremesa, certinho) {
-
     for(let i = 1; i < 6; i++){
         let verificado = document.getElementById(`sobremesa${i}`);
         if(verificado.style.border != '0px'){
@@ -96,7 +83,6 @@ function selecionaSobremesa (sobremesa, certinho) {
             continue
         }
     }
-
     let el = document.getElementById(sobremesa);
     el.style.border = '4px solid #32b72f';
     let ok = document.getElementById(certinho);
@@ -104,4 +90,14 @@ function selecionaSobremesa (sobremesa, certinho) {
     mudarLayoutBotao();
 }
 
+
+function bonus(){     
+        let topoOpaco = document.querySelector('.top-box');
+        topoOpaco.style.opacity = "0.20";
+        let conteudoOpaco = document.querySelector('.conteudo-pagina');
+        conteudoOpaco.style.opacity = "0.20";
+        let novaDiv = document.querySelector('.finalizacao-pedido');
+        novaDiv.style.display = 'flex';
+        // soma dos precos
+}
 
