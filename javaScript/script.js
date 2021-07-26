@@ -31,6 +31,7 @@ function mudarLayoutBotao () {
         selecionado.style.display = 'initial';
         let botao = document.getElementById('BF');
         botao.style.background = '#32b72f';
+        botao.classList.add('confirmado')
     }
 }
 
@@ -39,6 +40,7 @@ function selecionaPrato (prato, certinho) {
         let verificado = document.getElementById(`prato${i}`);
         if(verificado.style.border != '0px'){
             verificado.style.border = '0px';
+            verificado.classList.remove('prato-escolhido')
             let semCertinho = document.getElementById(`certinhoP${i}`);
             semCertinho.style.display = 'none';
         } else{
@@ -47,6 +49,7 @@ function selecionaPrato (prato, certinho) {
     }
     let el = document.getElementById(prato);
     el.style.border = '4px solid #32b72f';
+    el.classList.add('prato-escolhido')
     let ok = document.getElementById(certinho);
     ok.style.display = 'initial';
     mudarLayoutBotao();
@@ -57,6 +60,7 @@ function selecionaBebida (bebida, certinho) {
         let verificado = document.getElementById(`bebida${i}`);
         if(verificado.style.border != '0px'){
             verificado.style.border = '0px';
+            verificado.classList.remove('prato-escolhido')
             let semCertinho = document.getElementById(`certinhoB${i}`);
             semCertinho.style.display = 'none';
         } else{
@@ -65,6 +69,7 @@ function selecionaBebida (bebida, certinho) {
     }
     let el = document.getElementById(bebida);
     el.style.border = '4px solid #32b72f';
+    el.classList.add('bebida-escolhida')
     let ok = document.getElementById(certinho);
     ok.style.display = 'initial';
     mudarLayoutBotao();
@@ -77,6 +82,7 @@ function selecionaSobremesa (sobremesa, certinho) {
         let verificado = document.getElementById(`sobremesa${i}`);
         if(verificado.style.border != '0px'){
             verificado.style.border = '0px';
+            verificado.classList.remove('prato-escolhido')
             let semCertinho = document.getElementById(`certinhoS${i}`);
             semCertinho.style.display = 'none';
         } else{
@@ -85,19 +91,118 @@ function selecionaSobremesa (sobremesa, certinho) {
     }
     let el = document.getElementById(sobremesa);
     el.style.border = '4px solid #32b72f';
+    el.classList.add('sobremesa-escolhida')
     let ok = document.getElementById(certinho);
     ok.style.display = 'initial';
     mudarLayoutBotao();
 }
 
 
-function bonus(){     
+function bonus(){   
+    let botao = document.getElementById('BF');
+    if(botao.classList.contains('confirmado')){
         let topoOpaco = document.querySelector('.top-box');
         topoOpaco.style.opacity = "0.20";
         let conteudoOpaco = document.querySelector('.conteudo-pagina');
         conteudoOpaco.style.opacity = "0.20";
         let novaDiv = document.querySelector('.finalizacao-pedido');
         novaDiv.style.display = 'flex';
-        // soma dos precos
+        nomes();
+        precos();
+        soma();
+        mandarMensagem();
+    }
 }
 
+function nomes() {
+    let opcaoPrato = document.querySelector('.prato-escolhido .nome-opcao');
+    let nomePrato = opcaoPrato.innerHTML;
+    let prato = document.querySelector('.prato');
+    prato.innerHTML = nomePrato;
+    let opcaoBebida = document.querySelector('.bebida-escolhida .nome-opcao');
+    let nomeBebida = opcaoBebida.innerHTML;
+    let bebida = document.querySelector('.bebida');
+    bebida.innerHTML = nomeBebida;
+    let opcaoSobremesa = document.querySelector('.sobremesa-escolhida .nome-opcao');
+    let nomeSobremesa = opcaoSobremesa.innerHTML;
+    let sobremesa = document.querySelector('.sobremesa');
+    sobremesa.innerHTML = nomeSobremesa;
+}
+
+function precos (){
+    let opcaoPrato = document.querySelector('.prato-escolhido .preco');
+    let precoPrato = opcaoPrato.innerHTML;
+    let prato = document.querySelector('.preco-prato');
+    prato.innerHTML = precoPrato;
+    let opcaoBebida = document.querySelector('.bebida-escolhida .preco');
+    let precoBebida = opcaoBebida.innerHTML;
+    let bebida = document.querySelector('.preco-bebida');
+    bebida.innerHTML = precoBebida;
+    let opcaoSobremesa = document.querySelector('.sobremesa-escolhida .preco');
+    let precoSobremesa = opcaoSobremesa.innerHTML;
+    let sobremesa = document.querySelector('.preco-sobremesa');
+    sobremesa.innerHTML = precoSobremesa;
+}
+
+function soma(){
+    let total = 0;
+    let prato = document.querySelector('.preco-prato');
+    if (prato.innerHTML.length === 8){
+        let valorPrato2 = Number(prato.innerHTML[3] + prato.innerHTML[4]);
+        console.log(valorPrato2);
+        total+=Number(valorPrato2);
+    } else {
+        let valorPrato1 = prato.innerHTML[3];
+        console.log(valorPrato1);
+        total+=Number(valorPrato1);
+    }
+    let bebida = document.querySelector('.preco-bebida');
+    if (bebida.innerHTML.length === 8){
+        let valorBebida2 = Number(bebida.innerHTML[3] + bebida.innerHTML[4]);
+        console.log(valorBebida2);
+        total+=Number(valorBebida2);
+    } else {
+        let valorBebida1 = bebida.innerHTML[3];
+        console.log(valorBebida1);
+        total+=Number(valorBebida1);
+    }
+    let sobremesa = document.querySelector('.preco-sobremesa');
+    if (sobremesa.innerHTML.length === 8){
+        let valorSobremesa2 = Number(sobremesa.innerHTML[3] + sobremesa.innerHTML[4]);
+        console.log(valorSobremesa2);
+        total+=Number(valorSobremesa2);
+    } else {
+        let valorSobremesa1 = sobremesa.innerHTML[3];
+        console.log(valorSobremesa1);
+        total+=Number(valorSobremesa1);
+    }
+    let valorTotal = document.querySelector('.total.negrito');
+    valorTotal.innerHTML = `R$ ${total},00`
+}
+
+function desfazBonus (){
+    let topoOpaco = document.querySelector('.top-box');
+    topoOpaco.style.opacity = "1";
+    let conteudoOpaco = document.querySelector('.conteudo-pagina');
+    conteudoOpaco.style.opacity = "1";
+    let novaDiv = document.querySelector('.finalizacao-pedido');
+    novaDiv.style.display = 'none';
+}
+
+function mandarMensagem(){
+    let total = document.querySelector('.total.negrito').innerHTML;
+    let sobremesaN = document.querySelector('.sobremesa').innerHTML;
+    let bebidaN = document.querySelector('.bebida').innerHTML;
+    let pratoN = document.querySelector('.prato').innerHTML;
+    let mensagem = `Olá, gostaria de fazer o pedido:
+    - Prato: ${pratoN}
+    - Bebida: ${bebidaN}
+    - Sobremesa: ${sobremesaN}
+    - Nome: ${prompt("Qual o seu nome?")}
+    -Endereço: ${prompt('E o seu endereço?')}
+    Total: ${total}` 
+    let link = "https://wa.me/5521967431453?text=" + encodeURIComponent(mensagem);
+    console.log(link);
+    let element = document.querySelector(".link-whatsapp");
+    element.setAttribute('href', link)
+}

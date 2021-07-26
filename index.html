@@ -17,20 +17,22 @@
         <p class="titulo-confirmacao">Confirme seu pedido</p>
         <div class="bloco-pedido">
             <div class="nomes">
-                <p>oiiiiii</p>
-                <p>eu</p>
-                <p>quero</p>
+                <p class="prato"></p>
+                <p class="bebida"></p>
+                <p class = "sobremesa"></p>
                 <p><span class="negrito">TOTAL</span></p>
             </div>
             <div class="precos">
-                <p>oiiiiii</p>
-                <p>eu</p>
-                <p>quero</p>
-                <p><span class="negrito">TOTAL</span></p>
+                <p class="preco-prato"></p>
+                <p class = "preco-bebida"></p>
+                <p class="preco-sobremesa"></p>
+                <p class="total negrito"></p>
             </div>
         </div>
-        <button class="botao-confirma">Tudo certo, pode pedir!</button>
-        <button class="botao-cancelar">Cancelar</button>
+        <button class="botao-confirma">
+            <a class= "link-whatsapp">Tudo certo, pode pedir!</a>
+        </button>
+        <button class="botao-cancelar" onclick="desfazBonus()">Cancelar</button>
     </div>
     <div class="top-box">
         <p class="nome-restaurante">DrivenEats</p>
