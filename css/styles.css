@@ -231,3 +231,7 @@ body{
     width: 333px;
     height: 52px
 }
+
+.conteudo-travado {
+    overflow: hidden;
+}

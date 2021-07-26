@@ -103,8 +103,10 @@ function bonus(){
     if(botao.classList.contains('confirmado')){
         let topoOpaco = document.querySelector('.top-box');
         topoOpaco.style.opacity = "0.20";
-        let conteudoOpaco = document.querySelector('.conteudo-pagina');
-        conteudoOpaco.style.opacity = "0.20";
+        let conteudoSite = document.querySelector('.conteudo-pagina');
+        conteudoSite.style.opacity = "0.20";
+        let body = document.querySelector('body');
+        body.classList.add('conteudo-travado'); 
         let novaDiv = document.querySelector('.finalizacao-pedido');
         novaDiv.style.display = 'flex';
         nomes();
